@@ -13,7 +13,7 @@ pipeline {
             steps {
                 // Build the Docker image from the Dockerfile
                 script {
-                    sh 'docker build -t hello-world-java dockerfile'
+                    sh 'docker build -t hello-world-java Dockerfile'
                 }
             }
         }
