@@ -8,7 +8,7 @@ WORKDIR /app
 COPY sample.java .
 
 # Compile the Java program
-RUN javac HelloWorld.java
+RUN javac sample.java
 
 # Command to run the program
-CMD ["java", "HelloWorld"]
+CMD ["java", "sample"]
