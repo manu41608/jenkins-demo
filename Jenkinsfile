@@ -19,9 +19,8 @@ pipeline {
                 // Build the Docker image from the Dockerfile
                 script {
                     sh '''
-                    cd /var/lib/jenkins/workspace/demo-job
                     echo "building docker image"
-                    docker build -t hello-world-java Dockerfile
+                    docker build -t hello-world-java .
                     
                     '''
                 }
