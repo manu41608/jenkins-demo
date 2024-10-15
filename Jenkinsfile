@@ -2,7 +2,7 @@ pipeline {
     agent any // Use any available agent
      environment {
         //DOCKER_IMAGE = 'my-docker-image' // Replace with your Docker image name
-        GITHUB_REPO = 'https://github.com/manu41608/jenkins-demo.git'
+        GITHUB_REPO = 'https://github.com/manu41608/jenkins-demo-1.git'
         BRANCH_NAME = 'main' // Change to your target branch if needed
     }
     stages {
