@@ -1,11 +1,16 @@
 pipeline {
     agent any // Use any available agent
-
+     environment {
+        //DOCKER_IMAGE = 'my-docker-image' // Replace with your Docker image name
+        GITHUB_REPO = 'https://github.com/manu41608/jenkins-demo.git'
+        BRANCH_NAME = 'main' // Change to your target branch if needed
+    }
     stages {
         stage('Clone Repository') {
             steps {
                 // Clone your repository (modify URL as needed)
-                git 'https://github.com/manu41608/jenkins-demo.git'
+                git url: GITHUB_REPO,
+                branch: BRANCH_NAME
             }
         }
         
@@ -13,7 +18,11 @@ pipeline {
             steps {
                 // Build the Docker image from the Dockerfile
                 script {
-                    sh 'docker build -t hello-world-java Dockerfile'
+                    sh '''
+                    echo "building docker image"
+                    docker build -t hello-world-java Dockerfile
+                    
+                    '''
                 }
             }
         }
@@ -22,7 +31,11 @@ pipeline {
             steps {
                 // Run the Docker container
                 script {
-                    sh 'docker run --rm hello-world-java'
+                    sh '''
+                    echo "running docker container" 
+                    docker run -d hello-world-java
+                   
+                    '''
                 }
             }
         }
